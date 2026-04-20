@@ -1,0 +1,15 @@
+name: CD Pipeline
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+      
+    - name: Simular Deploy
+      run: echo "Realizando deploy da aplicação... Deploy concluído com sucesso!"
