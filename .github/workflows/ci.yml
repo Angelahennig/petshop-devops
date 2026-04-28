@@ -18,8 +18,11 @@ jobs:
       with:
         node-version: '20'
         
-    - name: Executar testes de qualidade
-      run: echo "Rodando testes automatizados... Todos os testes passaram com sucesso!"
+    - name: Instalar dependências
+      run: npm install
+        
+    - name: Executar testes unitários
+      run: npm test
     
     - name: Discord notification
       uses: sarisia/actions-status-discord@v1
@@ -29,4 +32,3 @@ jobs:
         content: "🚀 Angela, o Workflow de CI do Petshop terminou!"
         description: "Status do Job: ${{ job.status }}"
         color: 0x00ff00
-
