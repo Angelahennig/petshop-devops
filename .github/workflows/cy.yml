@@ -1,6 +1,8 @@
 name: CI Pipeline
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -18,3 +20,13 @@ jobs:
         
     - name: Executar testes de qualidade
       run: echo "Rodando testes automatizados... Todos os testes passaram com sucesso!"
+    
+    - name: Discord notification
+      uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        content: "🚀 Angela, o Workflow de CI do Petshop terminou!"
+        description: "Status do Job: ${{ job.status }}"
+        color: 0x00ff00
+
