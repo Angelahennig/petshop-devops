@@ -29,3 +29,5 @@ const PORT = 8080;
 server.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+// Teste de alerta Discord.
